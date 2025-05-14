@@ -1,0 +1,15 @@
+import { Router } from "express";
+import { findall } from "../controls/users.controls.js";
+import { update } from "../controls/users.controls.js";
+import { deletes } from "../controls/users.controls.js";
+import { createUser } from "../controls/users.controls.js";
+import { createPost } from "../controls/post.controls.js";
+import { getUserPosts } from "../controls/post.controls.js";
+const router = Router();
+router.post("/", createUser);
+router.get("/", findall);
+router.put("/users/:id", update);
+router.delete("/users/:id", deletes);
+router.post("/:Id/posts", createPost);
+router.get("/:userId/posts", getUserPosts);
+export default router;
